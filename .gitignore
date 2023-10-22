@@ -13,5 +13,6 @@ node_modules/
 tsconfig.json
 .jsii
 lib/
+todo
 !/.npmignore
 !/LICENSE
