@@ -8,5 +8,5 @@ Lightweight bun typescript project generator for projen.
 To generate a new project using this template you can run
 
 ```bash
-  npx projen new --from bun-ts-projen
+  bunx projen new --from bun-ts-projen
 ```

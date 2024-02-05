@@ -1,5 +1,5 @@
-import { IgnoreFile, License } from 'projen';
 import { BunTypescript } from './src';
+import { IgnoreFile } from 'projen';
 
 const project = new BunTypescript({
   authorName: 'Liam Johnston',
@@ -7,6 +7,7 @@ const project = new BunTypescript({
   name: 'bun-ts-projen',
   tsconfigFilename: 'tsconfig.dev.json',
   keywords: ['bun', 'projen', 'jsii', 'project-template'],
+  bunContainerVersion: "1.0.25-alpine"
 });
 
 project.gitignore.addPatterns('tsconfig.json', '.jsii', 'lib/', 'todo');
@@ -20,6 +21,8 @@ project.package.addDevDeps(
   'projen',
 );
 
+project.package.addField('types', './lib/index.d.ts');
+
 project.package.addPeerDeps('projen');
 project.package.addField('jsii', {
   targets: {},
@@ -32,17 +35,18 @@ project.package.addField('jsii', {
 
 project.package.setScript('build', 'jsii --silence-warnings=reserved-word');
 
-project.package.addField('files', ['lib', '.jsii']);
+project.package.addField('files', ['lib', '.jsii', 'sample']);
 
-project.package.addVersion('0.0.1');
+project.package.addVersion('0.0.16');
 
 const ignoreFile = new IgnoreFile(project, '.npmignore');
 
 ignoreFile.addPatterns('node_modules/');
 
-new License(project, {
-  spdx: project.package.license || 'Apache-2.0.txt',
-  copyrightOwner: 'Liam Johnston',
-});
+
+project.makefile.addRule({
+  targets: ['build'],
+  recipe: ['bun run build']
+})
 
 project.synth();
