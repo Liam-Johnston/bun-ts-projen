@@ -1,8 +1,8 @@
 {
   "files": [
-    "./Makefile",
     ".eslintrc.json",
     ".gitattributes",
+    ".github/workflows/push-to-main.yml",
     ".gitignore",
     ".npmignore",
     ".prettierrc",
@@ -10,6 +10,7 @@
     ".projen/files.json",
     ".projen/tasks.json",
     "docker-compose.yml",
+    "Makefile",
     "tsconfig.dev.json",
     "tsconfig.projen.json"
   ],

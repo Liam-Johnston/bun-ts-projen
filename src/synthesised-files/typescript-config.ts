@@ -3,7 +3,7 @@ import { TypeScriptModuleResolution, TypescriptConfig } from "projen/lib/javascr
 import { BunTypescriptOptions } from "../types";
 import { Project } from "projen";
 
-export const generateTypsecriptConfig = (project: Project, options: BunTypescriptOptions): TypescriptConfig => {
+export const generateTypescriptConfig = (project: Project, options: BunTypescriptOptions): TypescriptConfig => {
   return new TypescriptConfig(project, {
     fileName: options.tsconfigFilename,
     compilerOptions: {

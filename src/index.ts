@@ -12,18 +12,16 @@ import {
   generateMakeFile,
   generateNodePackage,
   generatePrettier,
-  generateTypsecriptConfig,
+  generateTypescriptConfig,
 } from './synthesised-files';
 
 import { BunTypescriptOptions } from './types';
-// import { NodePackageOptions } from "projen/lib/javascript";
-// import { ProjectOptions } from "projen";
 import { ProjenrcTs } from 'projen/lib/typescript';
 import { cleanupProjectDefaults } from './utils';
 import { generateAppService } from './docker-services';
 
 // Annoying workaround to get JSII & typescript behaving
-export * from './types/project-options'
+export * from './types/project-options';
 
 /**
  * Create a basic Bun project written in Typescript
@@ -64,7 +62,7 @@ export class BunTypescript extends Project {
     cleanupProjectDefaults(this);
 
     this.makefile = generateMakeFile(this, options);
-    this.tsConfig = generateTypsecriptConfig(this, options);
+    this.tsConfig = generateTypescriptConfig(this, options);
 
     generateEsLint(this);
     generatePrettier(this);

@@ -6,7 +6,7 @@ node_modules/
 !/.projen/files.json
 !/tsconfig.projen.json
 !/package.json
-!/./Makefile
+!/Makefile
 !/tsconfig.dev.json
 !/.eslintrc.json
 !/.prettierrc
@@ -16,3 +16,7 @@ tsconfig.json
 lib/
 todo
 !/.npmignore
+/lib/changelog.md
+/lib/version.txt
+!/.projenrc.ts
+!/.github/workflows/push-to-main.yml

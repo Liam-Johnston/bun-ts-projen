@@ -72,6 +72,10 @@
       "type": "build"
     },
     {
+      "name": "projen-cicd-component",
+      "type": "build"
+    },
+    {
       "name": "projen",
       "type": "peer"
     }
