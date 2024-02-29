@@ -20,7 +20,8 @@ const project = new BunTypescript({
     'projen',
   ],
   peerDeps: [
-    'projen'
+    'projen',
+    'constructs'
   ]
 });
 
@@ -47,7 +48,7 @@ ignoreFile.addPatterns('node_modules/');
 
 project.makefile.addRule({
   targets: ['build'],
-  recipe: ['bun run build'],
+  recipe: ['docker compose run --rm app bun run build'],
 });
 
 project.makefile.addRule({
