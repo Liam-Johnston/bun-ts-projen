@@ -22,7 +22,10 @@ const project = new BunTypescript({
   peerDeps: [
     'projen',
     'constructs'
-  ]
+  ],
+  appEnvironmentVariables: {
+    NPM_TOKEN: "${NPM_TOKEN:-}"
+  }
 });
 
 project.gitignore.addPatterns('tsconfig.json', '.jsii', 'lib/', 'todo');
