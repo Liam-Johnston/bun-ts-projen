@@ -1,4 +1,5 @@
-import { NodePackageOptions } from 'projen/lib/javascript';
+import { NodePackageOptions, TypeScriptCompilerOptions } from 'projen/lib/javascript';
+
 import { ProjectOptions } from 'projen';
 
 /**
@@ -11,12 +12,6 @@ export interface BunTypescriptOptions
    * File name for the TSConfig file. Defaults to tsconfig.json if not specified.
    */
   readonly tsconfigFilename?: string;
-  /**
-   * Path mappings to include in the tsconfig compiler options
-   */
-  readonly tsconfigPaths?: {
-    [key: string]: string[];
-  };
   /**
    * Bun container version for running the app
    */
@@ -33,4 +28,9 @@ export interface BunTypescriptOptions
    * Do not generate sample code for the project
    */
   readonly omitSampleCode?: boolean;
+
+  /**
+   * tsconfig Compiler Options override
+   */
+  readonly tsconfigCompilerOptionsOverride?: TypeScriptCompilerOptions
 }

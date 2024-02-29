@@ -7,7 +7,6 @@ export const generateTypescriptConfig = (project: Project, options: BunTypescrip
   return new TypescriptConfig(project, {
     fileName: options.tsconfigFilename,
     compilerOptions: {
-        paths: options.tsconfigPaths,
         lib: ["ESNext"],
         module: "esnext",
         target: "esnext",
@@ -21,7 +20,8 @@ export const generateTypescriptConfig = (project: Project, options: BunTypescrip
         allowJs: true,
         types: [
           "bun-types"
-        ]
+      ],
+      ...options.tsconfigCompilerOptionsOverride
       }
   })
 }
